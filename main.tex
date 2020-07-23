@@ -1,0 +1,172 @@
+\documentclass[notheorems, hyperref={backref}]{beamer}
+
+%% KEY LINES IN THIS TEX FILE %% (enter line number+gg to go)
+
+%
+% LOCAL FONT DEFINITIONS -- need to come first
+%
+%\usepackage{mathpazo}
+\usepackage{libertine}
+\usepackage[libertine]{newtxmath}
+\usefonttheme[onlymath]{serif}
+
+%
+% STANDARD PREAMBLE
+%
+\input{preamble}
+\allowdisplaybreaks
+
+%
+% ABOUT FONT DEFINTIONS IN THE PREAMBLE
+%
+% Mathscr for sheaves use \sA, where A can be any letter. Exceptions and additions:
+% % \E (vector bundles)
+% % \F (coherent sheaves)
+% % \G (coherent sheaves)
+% % \hom (sheaf hom)
+% % \I (ideal sheaves)
+% % \L (line bundles)
+% % \M (line bundles)
+% % \O (structure sheaf)
+% % \w (canonical sheaf)
+%
+% Mathcal use \calA. Exceptions and additions:
+% % \U (open cover)
+% % \X (families of varieties)
+% % \Y (families of varieties)
+%
+% Mathbb use \bbA. Exceptions and additions:
+% % \A (affine space)
+% % \C (complex numbers)
+% % \Gm (puctured affine line)
+% % \k (field)
+% % \N (natural numbers)
+% % \P (projective space)
+% % \Q (rational numbers)
+% % \R (real numbers)
+% % \V (geometric vector bundle)
+% % \Z (integers)
+%
+% Boldfont for categories use \bfA. Additions:
+% % \Cat (categories)
+% % \Coh (coherent sheaves)
+% % \D (derived category)
+% % \Db (bounded derived category)
+% % \K (homotopy category)
+% % \Mod (modules)
+% % \PSh (presheaves)
+% % \QCoh (quasi-coherent sheaves)
+% % \Set (sets)
+% % \Sh (sheaves)
+% % \Top (topological spaces)
+% % \Vec (vector bundles)
+%
+% Mathfrak for ideals
+% % From \a to \e
+% % \m and \n for maximal ideals
+
+%
+% THEOREM ENVIRONMENTS
+%
+% Theorems, propositions, etc (dark green)
+\theoremstyle{darkgreentheorem}
+\newtheorem{thm}{Theorem}
+\newtheorem{lm}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+% Definitions (dark blue)
+\theoremstyle{darkbluedefinition}
+\newtheorem{defn}[thm]{Definition}
+% Examples (dark red)
+\theoremstyle{darkredexample}
+\newtheorem{exa}[thm]{Example}
+% Remarks (black)
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{nota}[thm]{Notation}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{q}[thm]{Question}
+\newtheorem{pbl}[thm]{Problem}
+
+%
+% THEOREM CROSS-REFERENCING
+%
+\crefname{thm}{theorem}{theorems}
+\Crefname{thm}{Theorem}{Theorems}
+\crefname{lm}{lemma}{lemmas}
+\Crefname{lm}{Lemma}{Lemmas}
+\crefname{prop}{proposition}{propositions}
+\Crefname{prop}{Proposition}{Propositions}
+\crefname{cor}{corollary}{corollaries}
+\Crefname{cor}{Corollary}{Corollaries}
+\crefname{conj}{conjecture}{conjectures}
+\Crefname{conj}{Conjecture}{Conjectures}
+\crefname{defn}{definition}{definitions}
+\Crefname{defn}{Definition}{Definitions}
+\crefname{exa}{example}{examples}
+\Crefname{exa}{Example}{Examples}
+\crefname{rem}{remark}{remarks}
+\Crefname{rem}{Remark}{Remarks}
+\crefname{nota}{notation}{notations}
+\Crefname{nota}{Notation}{Notations}
+\crefname{fact}{fact}{facts}
+\Crefname{fact}{Fact}{Facts}
+\crefname{q}{question}{questions}
+\Crefname{q}{Question}{Questions}
+\crefname{pbl}{problem}{problems}
+\Crefname{pbl}{Problem}{Problems}
+
+%
+% MATH OPERATORS
+%
+\DeclareMathOperator{\Hom}{Hom}
+
+%
+% OTHER COMMANDS
+%
+\newcommand{\ot}{\otimes}
+\newcommand{\op}{\oplus}
+
+%
+% TITLE PAGE INFORMATION
+%
+\title[Title]{Title}
+\author{Pedro Núñez}
+\institute{University of Freiburg}
+\date{\today}
+ 
+%
+% LINKS AND PDF OPTIONS
+%
+\makeatletter
+\hypersetup{
+  %pdfauthor={\authors},
+  pdftitle={\@title},
+  %pdfsubject={\@subjclass},
+  %pdfkeywords={\@keywords},
+  %pdfstartview={Fit},
+  %pdfpagelayout={TwoColumnRight},
+  %pdfpagemode={UseOutlines},
+  bookmarks,
+  colorlinks,
+  linkcolor=linkblue,
+  citecolor=linkred,
+  urlcolor=linkred}
+\makeatother
+\usecolortheme{orchid}
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+ 
+\begin{frame}
+\frametitle{Sample frame title}
+This is a text in the first frame. This is a text in the first frame. This is a text in the first frame.
+Here is a formula:
+\[ \chi(\F)=\sum_{i=1}^{\dim{X}}(-1)^{i}h^{i}(X,\F). \]
+\end{frame}
+ 
+\end{document}
+
+
