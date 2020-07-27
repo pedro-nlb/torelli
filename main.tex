@@ -1,4 +1,4 @@
-\documentclass[notheorems, hyperref={backref}]{beamer}
+\documentclass[notheorems, hyperref]{beamer}
 
 %% KEY LINES IN THIS TEX FILE %% (enter line number+gg to go)
 
@@ -6,9 +6,9 @@
 % LOCAL FONT DEFINITIONS -- need to come first
 %
 %\usepackage{mathpazo}
-\usepackage{libertine}
-\usepackage[libertine]{newtxmath}
-\usefonttheme[onlymath]{serif}
+%\usepackage{libertine}
+%\usepackage[libertine]{newtxmath}
+%\usefonttheme[onlymath]{serif}
 
 %
 % STANDARD PREAMBLE
@@ -71,6 +71,7 @@
 % Theorems, propositions, etc (dark green)
 \theoremstyle{darkgreentheorem}
 \newtheorem{thm}{Theorem}
+\newtheorem{reform}{Reformulation}
 \newtheorem{lm}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
@@ -121,20 +122,24 @@
 % MATH OPERATORS
 %
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Pic}{Pic}
 
 %
 % OTHER COMMANDS
 %
 \newcommand{\ot}{\otimes}
 \newcommand{\op}{\oplus}
+\renewcommand{\L}{\mathcal{L}}
+\renewcommand{\M}{\mathcal{M}}
+\newcommand{\dual}{^{\vee}}
 
 %
 % TITLE PAGE INFORMATION
 %
-\title[Title]{Title}
-\author{Pedro Núñez}
+\title[Torelli's Theorem]{Torelli's Theorem}
+\author{Remarks on Sections III.12--13 of Milne's \textit{Abelian Varieties}}
 \institute{University of Freiburg}
-\date{\today}
+\date{28th July 2020}
  
 %
 % LINKS AND PDF OPTIONS
@@ -154,19 +159,90 @@
   citecolor=linkred,
   urlcolor=linkred}
 \makeatother
-\usecolortheme{orchid}
+\usecolortheme{rose}
  
 \begin{document}
  
 \frame{\titlepage}
- 
+
 \begin{frame}
-\frametitle{Sample frame title}
-This is a text in the first frame. This is a text in the first frame. This is a text in the first frame.
-Here is a formula:
-\[ \chi(\F)=\sum_{i=1}^{\dim{X}}(-1)^{i}h^{i}(X,\F). \]
+    \frametitle{Assumptions, notation and recollections}
+    \begin{enumerate}[label=\textbullet]
+	\item $k$ is an algebraically closed field.
+	    \pause
+	\item $C$ is a smooth complete curve over $k$ of genus $g\geqslant 2$.
+	    \pause
+	\item $J$ is its Jacobian, which is an abelian variety representing
+	    \[ T \mapsto \{ \L\in \Pic(C\times T) \mid \deg(\L_{t})=0 \text{ for all }t\in T \}/\Pic(T). \]
+	    \vspace{-1em}
+	    \pause
+	\item In particular, we may and will identify $J(k)=\Pic^{0}(C)$.
+	    \pause
+	\item Fix $P\in C(k)$ once and for all.
+	    Then we get a canonical map
+	    \[ f\colon C\to J, \quad Q\mapsto [Q-P]. \]
+	    \vspace{-1em}
+	    \pause
+	\item For all $1\leqslant r\leqslant g$ we get an induced map
+	    \[ f\colon C^{(r)} \to J, \quad P_{1}\cdot \ldots \cdot P_{r}\mapsto [P_{1}+\cdots +P_{r}-rP] \]
+	    birational onto its image $W^{r}\subseteq J$, which is a closed subvariety.
+    \end{enumerate}
 \end{frame}
- 
+
+\begin{frame}
+    \frametitle{Canonical polarization}
+    \begin{enumerate}[label=\textbullet]
+	\item For $r=g-1$ we get a divisor $\Theta=W^{g-1}\subseteq J$, the image of
+	    \[ f\colon C^{(g-1)}\to J, \quad P_{1}\cdot \ldots \cdot P_{g-1} \mapsto [P_{1}+\cdots +P_{g-1}-(g-1)P ]. \]
+	    \vspace{-1em}
+	    \pause
+	    \begin{figure}[htp]
+		\centering
+		\includegraphics[scale=.5]{theta.png}
+	    \end{figure}
+	    \pause
+	\item The induced $\lambda \colon J\to J\dual$ is an isomorphism, so $\Theta$ gives us a principal polarization of $J$ called the \textit{canonical polarization}.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Statement --- Existence}
+    Let $C$ and $C'$ be curves as before and let $\beta \colon (J,\lambda)\xrightarrow{\sim} (J',\lambda')$ be an isomorphism such that $\lambda'\circ \beta=\beta\dual\circ \lambda$.
+    \pause
+    \vspace{1em}
+
+    Then there exists an isomorphism $\alpha\colon C\xrightarrow{\sim} C'$ such that
+    \begin{center}
+	\begin{tikzcd}[ampersand replacement=\&]
+	    C\arrow{r}{f}\arrow[swap]{d}{\alpha} \& J\arrow{d}{\beta} \\
+	    C'\arrow[swap]{r}{f'} \& J'
+	\end{tikzcd}
+    \end{center}
+    commutes up to a sign and translation by some $c\in J'(k)$.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Statement --- Uniqueness}
+    A curve $C$ as before is called \textit{hyperelliptic} if there is a $2:1$ branched covering $\gamma\colon C\to \P^{1}$.
+    \pause
+    From Hartshorne's exercises:
+    \begin{enumerate}[label=\textbullet]
+	\item A curve of genus $2$ is always hyperelliptic.
+	\item There are hyperelliptic curves of any genus $g\geqslant 2$.
+	\item A plane curve of degree $4$ (thus $g=3$) is not hyperelliptic.
+    \end{enumerate}
+    \pause
+    We can now state uniqueness distinguishing two cases:
+    \begin{enumerate}[label=\textbullet]
+	\item If $C$ is not hyperelliptic, then $\alpha$, the sign and the element $c\in J'(k)$ by which we have to translate are uniquely determined by $\beta$, $P$ and $P'$.
+	\item If $C$ is hyperelliptic, then the sign can be chosen arbitrarily, and $\alpha$ and $c$ are uniquely determined by $\beta$, $P$, $P'$ and the chosen sign.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Thanks for your attention! Here are some references:}
+    \bibliographystyle{alpha}
+    \bibliography{main.bib}
+\end{frame}
+
 \end{document}
-
-
