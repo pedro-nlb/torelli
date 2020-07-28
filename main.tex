@@ -207,6 +207,7 @@
 
 \begin{frame}
     \frametitle{Statement --- Existence}
+    \begin{tcolorbox}[colback=blue!5!white,colframe=blue!5!white]
     Let $C$ and $C'$ be curves as before and let $\beta \colon (J,\lambda)\xrightarrow{\sim} (J',\lambda')$ be an isomorphism such that $\lambda'\circ \beta=\beta\dual\circ \lambda$.
     \pause
     \vspace{1em}
@@ -218,7 +219,8 @@
 	    C'\arrow[swap]{r}{f'} \& J'
 	\end{tikzcd}
     \end{center}
-    commutes up to a sign and translation by some $c\in J'(k)$.
+    commutes up to a sign and a translation by some $c\in J'(k)$.
+    \end{tcolorbox}
 \end{frame}
 
 \begin{frame}
@@ -233,25 +235,57 @@
     \end{enumerate}
     \pause
     We can now state uniqueness distinguishing two cases:
+    \begin{tcolorbox}[colback=blue!5!white,colframe=blue!5!white]
     \begin{enumerate}[label=\textbullet]
-	\item If $C$ is not hyperelliptic, then $\alpha$, the sign and the element $c\in J'(k)$ by which we have to translate are uniquely determined by $\beta$, $P$ and $P'$.
+	\item If $C$ is not hyperelliptic, then the sign, $\alpha$ and $c$ are uniquely determined by $\beta$, $P$ and $P'$.
 	\item If $C$ is hyperelliptic, then the sign can be chosen arbitrarily, and $\alpha$ and $c$ are uniquely determined by $\beta$, $P$, $P'$ and the chosen sign.
     \end{enumerate}
+    \end{tcolorbox}
 \end{frame}
 
 \begin{frame}
     \frametitle{Proof --- Uniqueness (modulo case distinctions for signs)}
     \begin{enumerate}[label=\textbullet]
 	\item Suppose $\alpha_{1},\alpha_{2},c_{1}$ and $c_{2}$ were such that $f'\circ\alpha_{i}=\beta\circ f+c_{i}$.
+	    \pause
 	\item Then $f'\circ (\alpha_{1}-\alpha_{2})\colon C\to J'$ is constant, so $\alpha_{1}-\alpha_{2}$ sends every pair of points in $C$ to the same fibre of $f'\colon C'\to J'$.
+	    \pause
 	\item Hence $(\alpha_{1}-\alpha_{2})(Q_{1})\sim (\alpha_{1}-\alpha_{2})(Q_{2})$ and
-	    \[ (*) \quad \alpha_{1}(Q_{1})+\alpha_{2}(Q_{2})\sim \alpha_{2}(Q_{1})+\alpha_{1}(Q_{2}). \]
+	    \begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!5!white]
+		\vspace{-1em}
+		\[ (*) \quad \alpha_{1}(Q_{1})+\alpha_{2}(Q_{2})\sim \alpha_{2}(Q_{1})+\alpha_{1}(Q_{2})\quad (\forall Q_{1},Q_{2}). \]
+	    \end{tcolorbox}
+	    \vspace{-0.5em}
+	    \pause
 	\item Suppose $\alpha_{1}\neq \alpha_{2}$.
 	    Then $\exists Q_{1}\in C(k)$ s.t.~$\alpha_{1}(Q_{1})\neq \alpha_{2}(Q_{1})$.
-	    Since $\alpha_{1}$ is an isomorphism, there are also plenty $Q_{2}\in C(k)$ s.t.~$\alpha_{1}(Q_{1})\neq \alpha_{1}(Q_{2})$, hence $\alpha_{1}(Q_{1})\not\in \{\alpha_{2}(Q_{1}),\alpha_{1}(Q_{2})\}$.
-	\item So the degree $2$ linear system given by $(*)$ contains at least two divisors, hence is at least of dimension $1$.
+	    Since $\alpha_{1}$ is an isomorphism, there are also plenty $Q_{2}\in C(k)$ s.t.~$\alpha_{1}(Q_{1})\neq \alpha_{1}(Q_{2})$, hence \textcolor{darkblue}{$\alpha_{1}(Q_{1})\not\in \{\alpha_{2}(Q_{1}),\alpha_{1}(Q_{2})\}$}.
+	    \pause
+	\item So the degree $2$ linear system given by $(*)$ contains at least two divisors, which implies that it is of dimension at least $1$.
+	    \pause
 	\item Varying $Q_{1}$ we obtain more such linear systems, and curves of general type can have at most one such linear system.
+	    \pause
 	\item This contradiction shows that $\alpha_{1}=\alpha_{2}$, thus $c_{1}=c_{2}$.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Corollary --- Torelli over a perfect field $F\subseteq k$} 
+    \begin{tcolorbox}[colback=blue!5!white,colframe=blue!5!white]
+    If $C$, $C'$ and $\beta$ are defined over $F$, then $\alpha$ is defined over $F$ as well.
+	In particular, $C\cong C'$ over $F$.
+    \end{tcolorbox}
+    \textit{Sketch of proof (choose a sign if $C$ hyperelliptic):}
+    \begin{enumerate}[label=(\arabic*)]
+	\item $\alpha$ is characterized by: $\exists c\in J(k)$ s.t.~$f^{P'}\circ \alpha=\pm \beta\circ f^{P}+c$.
+	\item Replacing $P$ by $Q$ we get $f^{Q}=f^{P}+d$, resp.~for $(-)'$.
+	    Hence
+	    \[ f^{Q'}\circ \alpha=f^{P'}\circ \alpha+d'=\pm \beta \circ f^{P}+c+d'=\pm \beta \circ f^{Q}\mp \beta(d)+c+d'. \]
+	\item Hence $\alpha$ is independent of the chosen $k$-points $P$ and $P'$.
+	\item For $\sigma\in \operatorname{Gal}(k/F)$ we have $\sigma f^{P}=f^{\sigma P}$, resp.~for $(-)'$.
+	    Hence
+	    \[ f^{\sigma P'}\circ \sigma\alpha =\sigma f^{P'}\circ \sigma \alpha=\pm \sigma \beta\circ \sigma f^{P}+\sigma c=\pm \beta \circ f^{\sigma P}+\sigma c. \]
+	    Point $(3)$ implies then $\sigma \alpha=\alpha$.
     \end{enumerate}
 \end{frame}
 
