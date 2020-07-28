@@ -275,13 +275,17 @@
     If $C$, $C'$ and $\beta$ are defined over $F$, then $\alpha$ is defined over $F$ as well.
 	In particular, $C\cong C'$ over $F$.
     \end{tcolorbox}
+    \pause
     \textit{Sketch of proof (choose a sign if $C$ hyperelliptic):}
     \begin{enumerate}[label=(\arabic*)]
 	\item $\alpha$ is characterized by: $\exists c\in J(k)$ s.t.~$f^{P'}\circ \alpha=\pm \beta\circ f^{P}+c$.
+	    \pause
 	\item Replacing $P$ by $Q$ we get $f^{Q}=f^{P}+d$, resp.~for $(-)'$.
 	    Hence
 	    \[ f^{Q'}\circ \alpha=f^{P'}\circ \alpha+d'=\pm \beta \circ f^{P}+c+d'=\pm \beta \circ f^{Q}\mp \beta(d)+c+d'. \]
+	    \pause
 	\item Hence $\alpha$ is independent of the chosen $k$-points $P$ and $P'$.
+	    \pause
 	\item For $\sigma\in \operatorname{Gal}(k/F)$ we have $\sigma f^{P}=f^{\sigma P}$, resp.~for $(-)'$.
 	    Hence
 	    \[ f^{\sigma P'}\circ \sigma\alpha =\sigma f^{P'}\circ \sigma \alpha=\pm \sigma \beta\circ \sigma f^{P}+\sigma c=\pm \beta \circ f^{\sigma P}+\sigma c. \]
@@ -290,17 +294,33 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Idea of the existence proof}
+    \frametitle{Idea of the existence proof for $g=2$}
     Suppose $g=2$ as in the previous picture.
     If we identify $J$ with $J'$ via $\beta$, the fact that $\beta$ is a polarized isomorphism guarantees the following situation:
     \begin{figure}[htp]
 	\centering
-	\includegraphics[scale=.5]{genus2}
+	\includegraphics[scale=.5]{genus2.png}
     \end{figure}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Thanks for your attention!}
+    \frametitle{Idea of the existence proof for $g>2$}
+    If $g>2$, the fact that $\beta$ is a polarized isomorphism guarantees a priori only that $\Theta'$ is a translation $\Theta_{a}$ of $\Theta$ by some $a\in J(k)$:
+    \begin{figure}[htp]
+	\centering
+	\includegraphics[scale=.25]{genus3.jpg}
+    \end{figure}
+    \pause
+    Is $V^{1}_{a}=W^{1}_{b}$ for some $b\in J(k)$?
+
+    [Yes! Modulo replacing $W^{1}$ by its image under $x\mapsto -x$.]
+\end{frame}
+
+\begin{frame}
+    %\frametitle{Thanks for your attention!}
+    \begin{center}
+	\usebeamerfont*{frametitle}\usebeamercolor[fg]{frametitle}  Thanks for listening!
+    \end{center}
     \bibliographystyle{alpha}
     \bibliography{main.bib}
 \end{frame}
