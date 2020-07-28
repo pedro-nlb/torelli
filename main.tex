@@ -223,7 +223,7 @@
 
 \begin{frame}
     \frametitle{Statement --- Uniqueness}
-    A curve $C$ as before is called \textit{hyperelliptic} if there is a $2:1$ branched covering $\gamma\colon C\to \P^{1}$.
+    A curve $C$ as before is called \textit{hyperelliptic} if there is a (unique) $2:1$ branched covering $\pi\colon C\to \P^{1}$.
     \pause
     From Hartshorne's exercises:
     \begin{enumerate}[label=\textbullet]
@@ -236,6 +236,22 @@
     \begin{enumerate}[label=\textbullet]
 	\item If $C$ is not hyperelliptic, then $\alpha$, the sign and the element $c\in J'(k)$ by which we have to translate are uniquely determined by $\beta$, $P$ and $P'$.
 	\item If $C$ is hyperelliptic, then the sign can be chosen arbitrarily, and $\alpha$ and $c$ are uniquely determined by $\beta$, $P$, $P'$ and the chosen sign.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof --- Uniqueness (modulo case distinctions for signs)}
+    \begin{enumerate}[label=\textbullet]
+	\item Suppose $\alpha_{1},\alpha_{2},c_{1}$ and $c_{2}$ were such that $f'\circ\alpha_{i}=\beta\circ f+c_{i}$.
+	\item Then $f'\circ (\alpha_{1}-\alpha_{2})\colon C\to J'$ is constant, so $\alpha_{1}-\alpha_{2}$ sends every pair of points in $C$ to the same fibre of $f'\colon C'\to J'$.
+	\item Hence $(\alpha_{1}-\alpha_{2})(Q_{1})\sim (\alpha_{1}-\alpha_{2})(Q_{2})$ and
+	    \[ (*) \quad \alpha_{1}(Q_{1})+\alpha_{2}(Q_{2})\sim \alpha_{2}(Q_{1})+\alpha_{1}(Q_{2}). \]
+	\item Suppose $\alpha_{1}\neq \alpha_{2}$.
+	    Then $\exists Q_{1}\in C(k)$ s.t.~$\alpha_{1}(Q_{1})\neq \alpha_{2}(Q_{1})$.
+	    Since $\alpha_{1}$ is an isomorphism, there are also plenty $Q_{2}\in C(k)$ s.t.~$\alpha_{1}(Q_{1})\neq \alpha_{1}(Q_{2})$, hence $\alpha_{1}(Q_{1})\not\in \{\alpha_{2}(Q_{1}),\alpha_{1}(Q_{2})\}$.
+	\item So the degree $2$ linear system given by $(*)$ contains at least two divisors, hence is at least of dimension $1$.
+	\item Varying $Q_{1}$ we obtain more such linear systems, and curves of general type can have at most one such linear system.
+	\item This contradiction shows that $\alpha_{1}=\alpha_{2}$, thus $c_{1}=c_{2}$.
     \end{enumerate}
 \end{frame}
 
